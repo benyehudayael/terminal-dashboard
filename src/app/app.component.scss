@@ -1,0 +1,70 @@
+
+:host{
+    width: 100%;
+    height: 100%;
+}
+.menu{
+    width: 20%;
+    height: 100%;
+    background-color: rgb(23, 57, 80);
+}
+.content{
+    height: 100%;
+    background-color: rgb(235, 235, 235);
+    display: grid;
+    grid-template-areas:
+    'header header header header'
+    'main main main main'
+    'right right right right';
+    gap: 10px;
+}
+.menuIcon{
+    height: 100%;
+}
+#searchContainer{
+    padding: 13px 13px 13px 13px;
+    height: 5%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 40%;
+    grid-area: header;
+}
+#searchBox{
+    border: 0.5px solid rgb(175, 175, 175);
+    border-radius: 50px;
+    width: 40%;
+    height: 80%;
+    padding-left: 15px;
+}
+
+#searchBox:focus {
+    outline: none;
+    border: 0.5px solid rgb(75, 75, 75);
+}
+#statusContainer{
+    background-color: rgba(250, 235, 215, 0);
+    width: 100%;
+    height: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 1.3%;
+    grid-area: main;
+}
+.statusBox{
+    width: 23%;
+    height: 90%;
+    min-width: 300px;
+    min-height: 170px;
+    background-color:  rgb(255, 255, 255);
+}
+#dashBoard{
+    background-color:  rgb(255, 255, 255);
+    width: 90%;
+    height: 60%;
+    padding: 1.3%;
+    grid-area: right;
+}
+

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-Terminal-Dashboard';
+  menuIconClicked = false;
+  constructor(){
+  }
+  openMenu(){
+    this.menuIconClicked = !this.menuIconClicked;
+  }
 }
