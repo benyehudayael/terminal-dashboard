@@ -1,16 +1,39 @@
-<div class="menu" *ngIf="menuIconClicked"></div>
-<div class="content" [ngStyle]="{'width': menuIconClicked ? '80%' : '100%'}">
-  <div id="searchContainer">
-    <div class="menuIcon" (click)="openMenu()"><img style="height: 100%;" src="../assets/menu.png" alt=""></div>
-    <input id="searchBox" type="text" placeholder="Search..">
+<div class="main">
+  <div *ngIf="menuIconClicked" class="menu">
+    <div class="menuItem header"><span class="material-symbols-outlined">
+      connecting_airports
+      </span><div class="itemName"> Terminal</div></div>
+    <div class="menuItem Item"><span class="material-symbols-outlined">
+      dashboard
+      </span><div class="itemName"> Dashboard</div></div>
   </div>
-  <div id="statusContainer">
-    <div id="airplanes" class="statusBox"></div>
-    <div id="flights" class="statusBox"></div>
-    <div id="passengers" class="statusBox"></div>
-    <div id="suitcases" class="statusBox"></div>
-  </div>
-  <div id="dashBoard">
-
+  <div class="content">
+      <div class="searchContainer"> 
+        <span (click)="openMenu()" class="material-symbols-outlined">
+          menu
+        </span>
+        <input class="searchBox" type="text" placeholder="Search..">
+      </div>
+      <div class="card-container">   
+        <!-- <div *ngFor="let card of cards$ | async"></div> -->
+        <div class="card">
+          <div class="cardItem">
+            {{this.flightSummary.tookOff}}
+            <span class="material-symbols-outlined">flight_takeoff</span>
+          </div>
+          <div class="cardItem">
+            {{this.flightSummary.aboutToLand}}
+            <span class="material-symbols-outlined">flight_land</span>
+          </div>
+          <div class="cardItem">
+            {{this.flightSummary.atTheAirport}}
+            <span class="material-symbols-outlined">airplanemode_inactive</span>
+          </div>
+        </div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+      </div>
+      <div class="dashBoard"></div>
   </div>
 </div>
