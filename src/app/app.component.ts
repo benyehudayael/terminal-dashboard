@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FlightSummary } from 'src/model/FlightSummary';
+import { Summary } from 'src/model/Summary';
 import { DataService } from './services/data.service';
 
 @Component({
@@ -8,20 +8,25 @@ import { DataService } from './services/data.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'angular-Terminal-Dashboard';
-  menuIconClicked = true;
-  flightSummary: FlightSummary;
-  LastMinutes: number = 30;
-  constructor(private dataService : DataService) { }
+  title = 'angular-Terminal-Dashboard'
+  menuIconClicked = true
+  summary: Summary
+  lastMinutes: number = 30
+  currentContent: string = 'Dashboard'
+  constructor(private dataService : DataService) { 
+  }
 
   ngOnInit(): void {
-    this.dataService.getFlightSummary(this.LastMinutes)
-    .subscribe(flightSummary => {
-      this.flightSummary = flightSummary;
-    })
+    //setInterval(() => { this.loadSummary() }, 1000);
+    this.loadSummary();
   }
- 
   openMenu(){
     this.menuIconClicked = !this.menuIconClicked;
+  }
+  loadSummary(){
+    this.dataService.getSummary(this.lastMinutes)
+    .subscribe((summary) => {
+      this.summary = summary;
+    })
   }
 }

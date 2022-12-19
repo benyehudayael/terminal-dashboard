@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule  } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FlightSummary } from 'src/model/FlightSummary';
+import { Summary } from 'src/model/Summary';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { FlightSummary } from 'src/model/FlightSummary';
 export class DataService {
   constructor(private http: HttpClient) { }
 
-  getFlightSummary(lastMinutes: number) : Observable<FlightSummary> {
-    return this.http.get<FlightSummary>('https://localhost:7261/api/FlightSammary?lastMinutes=' + lastMinutes);
+  getSummary(lastMinutes: number) : Observable<Summary> {
+    return this.http.get<Summary>('https://localhost:7261/api/Summary?lastMinutes=' + lastMinutes);
   }
 }

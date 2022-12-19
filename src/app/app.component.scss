@@ -121,15 +121,24 @@
             font-size: 40px;
             width: 100%;
             .material-symbols-outlined{
-                font-size: 40px;
+                font-size: 130%;
                 color: rgb(3, 142, 206);
             }
         }
-
     }
 }
-.dashBoard{
+app-dashboard{
     background-color: rgb(255, 255, 255);
+    height: 100%;
+    flex: 10;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
+}
+app-simulator{
+    background-image: url(../assets/simulatorBG.jpg);
+    background-position-x: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     height: 100%;
     flex: 10;
     margin: 1rem;

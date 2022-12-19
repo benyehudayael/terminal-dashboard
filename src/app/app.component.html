@@ -1,11 +1,17 @@
 <div class="main">
   <div *ngIf="menuIconClicked" class="menu">
-    <div class="menuItem header"><span class="material-symbols-outlined">
-      connecting_airports
-      </span><div class="itemName"> Terminal</div></div>
-    <div class="menuItem Item"><span class="material-symbols-outlined">
-      dashboard
-      </span><div class="itemName"> Dashboard</div></div>
+    <div class="menuItem header">
+      <span class="material-symbols-outlined">connecting_airports</span>
+      <div class="itemName"> Terminal</div>
+    </div>
+    <div class="menuItem Item" (click)="currentContent = 'Dashboard'">
+      <span class="material-symbols-outlined">dashboard</span>
+      <div class="itemName"> Dashboard</div>
+    </div>
+    <div class="menuItem Item" (click)="currentContent = 'Simulator'">
+      <span class="material-symbols-outlined">radar</span>
+      <div class="itemName"> Simulator</div>
+    </div>
   </div>
   <div class="content">
       <div class="searchContainer"> 
@@ -18,22 +24,37 @@
         <!-- <div *ngFor="let card of cards$ | async"></div> -->
         <div class="card">
           <div class="cardItem">
-            {{this.flightSummary.tookOff}}
+            {{summary?.tookOff}}
             <span class="material-symbols-outlined">flight_takeoff</span>
           </div>
           <div class="cardItem">
-            {{this.flightSummary.aboutToLand}}
+            {{summary?.aboutToLand}}
             <span class="material-symbols-outlined">flight_land</span>
           </div>
           <div class="cardItem">
-            {{this.flightSummary.atTheAirport}}
+            {{summary?.atTheAirport}}
             <span class="material-symbols-outlined">airplanemode_inactive</span>
           </div>
         </div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+        <div class="card">
+          <div class="cardItem">
+           {{summary?.sumOfAirplanes}}
+           <span class="material-symbols-outlined">airplanemode_active</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="cardItem">{{summary?.passengersInTheAirportArea}}</div>
+          <div class="cardItem">{{summary?.tookOffPassengers}}</div>
+          <div class="cardItem">{{summary?.landSoonPassengers}}</div>
+        </div>
+        <div class="card">
+          <div class="cardItem">{{summary?.suitcasesWaitingToBeUnloaded}}</div>
+          <div class="cardItem">{{summary?.suitcasesOnAConveyorBelt}}</div>
+          <div class="cardItem">{{summary?.suitcasesWaitingToBeloaded}}</div>
+        </div>
       </div>
-      <div class="dashBoard"></div>
+      <!-- dashBoard -->
+     <app-dashboard *ngIf="currentContent == 'Dashboard'"></app-dashboard>
+     <app-simulator *ngIf="currentContent == 'Simulator'"></app-simulator>
   </div>
 </div>
