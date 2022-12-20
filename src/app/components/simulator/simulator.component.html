@@ -1,1 +1,5 @@
-<div></div>
+<div class="airplane airplane-departure a2"></div>
+<div *ngFor="let item of airplanesAbautToTakeOff$ | async; let i = index" [ngClass]="'airplane airplane-departure a' + i.toString()"></div>
+<div *ngFor="let item of planesThatHaveLanded$ | async; let i = index" [ngClass]="'airplane airplane-landing a' + i.toString()"></div> 
+<div *ngFor="let item of leftParking; let i = index" [ngClass]="'airplane airplane-parking1 a' + i.toString()"></div>
+<div *ngFor="let item of rightParking; let i = index" [ngClass]="'airplane airplane-parking2 a' + i.toString()"></div>

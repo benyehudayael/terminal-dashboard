@@ -1,0 +1,24 @@
+.airplane {
+    background-image: url(../../../assets/airplane.jpg);
+    background-position-x: center;
+    background-position-y: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    &-parking1  { left: 1100px; }
+    &-parking2  { left: 1180px; }
+    &-landing   { left: 1253px; }
+    &-departure { left: 1030px; }
+    &.a0  { top: 502px; }
+    &.a1  { top: 533px; }
+    &.a2  { top: 565px; }
+    &.a3  { top: 597px; }
+    &.a4  { top: 628px; }
+    &.a5  { top: 660px; }
+    &.a6  { top: 692px; }
+    &.a7  { top: 723px; }
+    &.a8  { top: 755px; }
+    &.a9 { top: 782px; }
+}

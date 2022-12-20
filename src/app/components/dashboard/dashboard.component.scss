@@ -1,0 +1,19 @@
+.dashBoard{
+    margin: 2rem;
+}
+table {
+    font-family: 'Source Sans Pro', sans-serif;
+    width: 100%;
+}
+tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 1rem;
+    td, th {
+        text-align: left;
+        
+    }
+ }
+ 

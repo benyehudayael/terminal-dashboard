@@ -1,13 +1,17 @@
 <div class="dashBoard">
-    <h3>Flights coming soon:</h3>
+    <h1>Flights coming soon</h1>
     <table>
      <tr>
        <th *ngFor="let flightHeader of flightHeaders">{{flightHeader}}</th>
      </tr>
-     <!-- <tr *ngFor="x in flightList">
-       <td>{{}}</td>
-       <td>{{}}</td>
-       <td>Germany</td>
-     </tr> -->
+     <tr *ngFor="let x in flightSummarys">
+       <td>{{x.flight.id}}</td>  
+       <td>
+        <span *ngIf="x.isLanding" class="material-symbols-outlined">flight_land</span>
+        <span *ngIf="!x.isLanding" class="material-symbols-outlined">flight_takeoff</span></td>
+       <td>{{countryToFlag(x.flight.fromAirport.Iso_country)}}</td>
+       <td>{{countryToFlag(x.flight.toAirport.Iso_country)}}</td>
+       <td>{{x.time}}</td> 
+     </tr>  
    </table>
  </div>
