@@ -20,10 +20,10 @@ export class DataService {
     d.landingTime = d.landingTime ? new Date(d.landingTime) : undefined;
     return d;
   }
-  getFlights(lastMinutes: number): Observable<object[]> {
+  getFlights(lastMinutes: number): Observable<FlightSummary[]> {
     return this.http.get<object[]>('https://localhost:7261/api/flight?lastMinutes=' + lastMinutes)
       .pipe(map((flights: FlightSummary[]) => {
-        return flights.map(x => DataService.FixData(x.flight));
+        return flights.map(x => new FlightSummary(DataService.FixData(x.flight), x.isLanding, x.time))
       }));
   }  
 }

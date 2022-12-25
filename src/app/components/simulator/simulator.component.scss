@@ -1,3 +1,12 @@
+.simulator{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../assets/simulatorBG.jpg);
+    background-position-x: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
 .airplane {
     background-image: url(../../../assets/airplane.jpg);
     background-position-x: center;
@@ -7,18 +16,78 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    &-parking1  { left: 1100px; }
-    &-parking2  { left: 1180px; }
-    &-landing   { left: 1253px; }
-    &-departure { left: 1030px; }
-    &.a0  { top: 502px; }
-    &.a1  { top: 533px; }
-    &.a2  { top: 565px; }
-    &.a3  { top: 597px; }
-    &.a4  { top: 628px; }
-    &.a5  { top: 660px; }
-    &.a6  { top: 692px; }
-    &.a7  { top: 723px; }
-    &.a8  { top: 755px; }
-    &.a9 { top: 782px; }
+    &-departure { left: 625px;}
+    &-parking1  { left: 686px;}
+    &-parking2  { left: 811px;}
+    &-landing   { left: 866px;}
+    &.a0  { top: 202px; }
+    &.a1  { top: 233px; }
+    &.a2  { top: 265px; }
+    &.a3  { top: 297px; }
+    &.a4  { top: 328px; }
+    &.a5  { top: 360px; }
+    &.a6  { top: 392px; }
+    &.a7  { top: 423px; }
+    &.a8  { top: 455px; }
+    &.a9  { top: 482px; }
+}
+
+div.animate-departure {
+    animation: 
+    4s linear 0s normal getting-on-the-runway forwards,   
+    4s linear 4s normal about-to-take-off forwards,
+    4s linear 8s normal take-off forwards,
+    4s linear 12s normal in-the-air forwards,
+    4s steps(1, end) 12s normal gone forwards;          
+}
+
+@keyframes getting-on-the-runway {
+    from { top: 555px; left: 739px; }
+    to   { top: 71px; left: 739px; }
+}
+@keyframes about-to-take-off {
+    from { }
+    to   { top: 28px; transform:rotate(90deg); left: 747px; }
+}
+@keyframes take-off {
+    from { }
+    to   { left: 983px; }
+}
+@keyframes in-the-air {
+    from { }
+    to   { width: 50px; left: 1247px; }
+}
+@keyframes gone {
+    from { }
+    to { width: 0px; }
+}
+
+div.animate-landing {
+    animation: 
+    3s linear 0s normal showing forwards,
+    4s linear 3s normal land forwards,
+    3s linear 7s normal about-to-parking forwards,
+    7s linear 10s normal on-the-runway forwards,
+    4s steps(1, end) 13s normal gone forwards;
+}
+
+@keyframes diraction {
+    from {}
+    to   {}
+}
+@keyframes showing {
+    from { transform:rotate(-90deg); top: 28px; left: 1247px; }
+    to   { transform:rotate(-90deg); top: 28px; left: 984px; }
+}
+@keyframes land {
+    from { left: 984px; }
+    to   { left: 745px; }
+}
+@keyframes about-to-parking {
+    from { }
+    to   { top: 71px;  transform:rotate(-180deg); left: 739px; }
+}
+@keyframes on-the-runway {
+    from { top: 71px;  left: 739px;}
+    to   { top: 555px; left: 739px; }
 }

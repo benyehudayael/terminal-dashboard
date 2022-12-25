@@ -23,6 +23,15 @@
       <div class="card-container">   
         <!-- <div *ngFor="let card of cards$ | async"></div> -->
         <div class="card">
+          <div class="dropdown">
+            <button class="btn" style="border-left:1px solid #0d8bf2">
+              <span class="material-symbols-outlined">arrow_drop_down</span>
+            </button>
+            <div class="dropdown-content">
+              <a href="#" (click)="changeLastMinutes(-30)">Last 30 minutes</a>
+              <a href="#" (click)="changeLastMinutes(30)">Next 30 minutes</a>
+            </div>
+          </div>
           <div class="cardItem">
             {{summary?.tookOff}}
             <span class="material-symbols-outlined">flight_takeoff</span>

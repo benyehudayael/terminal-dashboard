@@ -17,11 +17,13 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    //setInterval(() => { this.loadSummary() }, 1000);
-    this.loadSummary();
+    setInterval(() => { this.loadSummary() }, 1000);
   }
   openMenu(){
     this.menuIconClicked = !this.menuIconClicked;
+  }
+  changeLastMinutes(minutes: number){
+    this.lastMinutes = minutes;
   }
   loadSummary(){
     this.dataService.getSummary(this.lastMinutes)
