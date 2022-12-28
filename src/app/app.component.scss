@@ -82,7 +82,7 @@
     border: 0.5px solid rgb(175, 175, 175);
     border-radius: 50px;
     width: 550px;
-    height: 70%;
+    height: 55%;
     padding-left: 15px;
     min-height: 35px;
     margin-right: 350px;
@@ -112,15 +112,21 @@
         box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding: 1rem;
-        .cardItem{
+        .dropdown{
             flex: 1;
+        }
+        .cardItem{
+            flex: 4;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             font-size: 40px;
             width: 100%;
+            img{
+                width: 70px;
+                height: 50px;
+            }
             .material-symbols-outlined{
                 font-size: 130%;
                 color: rgb(3, 142, 206);
@@ -144,24 +150,36 @@ app-simulator{
     box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
 }
 .dropdown {
-    position: absolute;
-    display: inline-block;
-    .btn {
-      background-color: #2196F3;
-      color: white;
-      font-size: 7px;
-      border: none;
-      outline: none;
-      .material-symbols-outlined {
-        font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 48
+    right: 0px;
+    position: relative;
+    .timing{
+        width: 170px;
+        height: 27px;
+        display: flex;
+        align-items: center;
+    
+       .btn {
+         background-color: rgba(3, 142, 206, 0.116);
+         color: white;
+         font-size: 7px;
+         border: none;
+         outline: none;
+         flex: 1;
+         .material-symbols-outlined {
+           color: rgb(142, 155, 161);
+           font-variation-settings:
+           'FILL' 0,
+           'wght' 400,
+           'GRAD' 0,
+           'opsz' 48
+          }
+       }
+       .p{
+        flex: 5;
+        margin-left: 1rem;
        }
     }
     .dropdown-content {
-      display: none;
       position: absolute;
       background-color: #f1f1f1;
       min-width: 60px;
@@ -175,14 +193,10 @@ app-simulator{
     }
       
   }
+ 
   .dropdown-content a:hover {background-color: #ddd}
-      
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-      
     .btn:hover, .dropdown:hover .btn {
-      background-color: #0b7dda;
+      background-color: rgba(3, 142, 206, 0.452);
     }
   
   

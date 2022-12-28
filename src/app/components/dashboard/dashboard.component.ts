@@ -19,12 +19,8 @@ export class DashboardComponent {
   ngOnInit(): void {
    this.getLastFlights();
   }
-  countryToFlag = (isoCode?: string) =>
-    isoCode != null ? 
-    isoCode
-      .toUpperCase()
-      .replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397))
-      : "";
+  // countryToFlag = (isoCode?: string) =>
+  // isoCode != null ? isoCode.toUpperCase().replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397)) : "";
 
 
   getLastFlights(){

@@ -4,6 +4,6 @@ export class FlightSummary{
     constructor(
         public flight: Flight, 
         public isLanding: boolean, // isoCode of airport,
-        public time: Date
+        public time: string
     ) {}
 }

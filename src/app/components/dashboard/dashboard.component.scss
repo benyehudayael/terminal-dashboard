@@ -10,10 +10,13 @@ tr{
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #dddddd;
-    padding-bottom: 1rem;
-    td, th {
+    padding: 0.5rem;
+    td {
         text-align: left;
-        
+        width: 100%;
+    }
+    th{
+        text-align: left;
     }
  }
  

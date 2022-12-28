@@ -8,7 +8,7 @@
     position: relative;
 }
 .airplane {
-    background-image: url(../../../assets/airplane.jpg);
+    background-image: url(../../../assets/airplane.png);
     background-position-x: center;
     background-position-y: center;
     background-size: contain;
@@ -34,20 +34,20 @@
 
 div.animate-departure {
     animation: 
-    4s linear 0s normal getting-on-the-runway forwards,   
-    4s linear 4s normal about-to-take-off forwards,
-    4s linear 8s normal take-off forwards,
-    4s linear 12s normal in-the-air forwards,
-    4s steps(1, end) 12s normal gone forwards;          
+    1s linear 0s normal getting-on-the-runway forwards,   
+    1s linear 1s normal about-to-take-off forwards,
+    1s linear 2s normal take-off forwards,
+    1s linear 3s normal in-the-air forwards,
+    1s steps(1, end) 4s normal gone forwards;          
 }
 
 @keyframes getting-on-the-runway {
-    from { top: 555px; left: 739px; }
-    to   { top: 71px; left: 739px; }
+    from { transform:rotate(-42deg); top: 555px; left: 739px; }
+    to   { transform:rotate(-42deg); top: 71px; left: 739px; }
 }
 @keyframes about-to-take-off {
     from { }
-    to   { top: 28px; transform:rotate(90deg); left: 747px; }
+    to   { top: 28px; transform:rotate(40deg); left: 747px; }
 }
 @keyframes take-off {
     from { }
@@ -64,30 +64,44 @@ div.animate-departure {
 
 div.animate-landing {
     animation: 
-    3s linear 0s normal showing forwards,
-    4s linear 3s normal land forwards,
-    3s linear 7s normal about-to-parking forwards,
-    7s linear 10s normal on-the-runway forwards,
-    4s steps(1, end) 13s normal gone forwards;
+    1s linear 0s normal showing forwards,
+    1s linear 1s normal land forwards,
+    1s linear 2s normal turn-to-runway forwards,
+    1s linear 3s normal on-the-runway forwards,
+    1s linear 4s normal turn-to-release-passengers forwards,
+    1s linear 5s normal release-passengers forwards;
 }
 
-@keyframes diraction {
-    from {}
-    to   {}
-}
 @keyframes showing {
-    from { transform:rotate(-90deg); top: 28px; left: 1247px; }
-    to   { transform:rotate(-90deg); top: 28px; left: 984px; }
+    from { transform:rotate(-135deg); top: 28px; left: 1247px; }
+    to   { transform:rotate(-135deg); top: 28px; left: 984px; }
 }
 @keyframes land {
-    from { left: 984px; }
-    to   { left: 745px; }
+    from { left: 984px; top: 28px; }
+    to   { left: 745px; top: 28px; }
 }
-@keyframes about-to-parking {
-    from { }
-    to   { top: 71px;  transform:rotate(-180deg); left: 739px; }
+@keyframes turn-to-runway {
+    from { left: 745px; top: 28px; }
+    to   { top: 71px;  transform:rotate(-230deg); left: 750px; }
 }
 @keyframes on-the-runway {
-    from { top: 71px;  left: 739px;}
-    to   { top: 555px; left: 739px; }
+    from { top: 71px;  left: 750px;}
+    to   { top: 255px; left: 750px; }
 }
+@keyframes turn-to-release-passengers {
+    from { top: 255px; left: 750px; }
+    to   { top: 260px; transform:rotate(-320deg); left: 760px; }
+}
+@keyframes release-passengers {
+    from { top: 260px; left: 760px; }
+    to   { top: 260px; left: 866px; }
+}
+
+// div.animate-fromParking1ToDeparture {
+//     animation: 
+//     1s linear 0s normal showing forwards,
+//     1s linear 1s normal land forwards,
+//     1s linear 2s normal about-to-parking forwards,
+//     1s linear 3s normal on-the-runway forwards,
+//     1s steps(1, end) 3s normal gone forwards;
+// }
