@@ -1,6 +1,4 @@
 <div class="simulator">
-    <div *ngFor="let item of airplanesAbautToTakeOff$ | async; let i = index" [ngClass]="'airplane airplane-departure a' + i.toString()"></div>
-    <div *ngFor="let item of planesThatHaveLanded$ | async; let i = index" [ngClass]="'airplane airplane-landing a' + i.toString()"></div> 
-    <div *ngFor="let item of leftParking$ | async; let i = index" [ngClass]="'airplane airplane-parking1 a' + i.toString()"></div>
-    <div *ngFor="let item of rightParking$ | async; let i = index" [ngClass]="'airplane airplane-parking2 a' + i.toString()"></div>
+    <div *ngFor="let item of airplanes$ | async" class="airplane" [id]="item.id"></div>
+    <div class="ddddd"></div>
 </div>

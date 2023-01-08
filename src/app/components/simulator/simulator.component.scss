@@ -14,12 +14,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+    display: none;
     width: 30px;
     height: 30px;
-    &-departure { left: 625px;}
-    &-parking1  { left: 686px;}
-    &-parking2  { left: 811px;}
-    &-landing   { left: 866px;}
+    transition: top,left ease-in-out 1s;
+    &-departure { display: block; left: 625px;}
+    &-parking1  { display: block; left: 686px;}
+    &-parking2  { display: block; left: 811px;}
+    &-landing   { display: block; left: 866px;}
     &.a0  { top: 202px; }
     &.a1  { top: 233px; }
     &.a2  { top: 265px; }
@@ -30,15 +32,23 @@
     &.a7  { top: 423px; }
     &.a8  { top: 455px; }
     &.a9  { top: 482px; }
-}
-
-div.animate-departure {
-    animation: 
-    1s linear 0s normal getting-on-the-runway forwards,   
-    1s linear 1s normal about-to-take-off forwards,
-    1s linear 2s normal take-off forwards,
-    1s linear 3s normal in-the-air forwards,
-    1s steps(1, end) 4s normal gone forwards;          
+    &.animate-departure {
+        animation: 
+        1s linear 0s normal getting-on-the-runway forwards,   
+        1s linear 1s normal about-to-take-off forwards,
+        1s linear 2s normal take-off forwards,
+        1s linear 3s normal in-the-air forwards,
+        1s steps(1, end) 4s normal gone forwards;          
+    }
+    &.animate-landing {
+        display: block;
+        animation: 
+        1s linear 0s normal showing forwards,
+        1s linear 1s normal land forwards,
+        1s linear 2s normal turn-to-runway forwards,
+        1s linear 3s normal on-the-runway forwards,
+        1s linear 4s normal turn-to-release-passengers forwards;
+    }    
 }
 
 @keyframes getting-on-the-runway {
@@ -60,16 +70,6 @@ div.animate-departure {
 @keyframes gone {
     from { }
     to { width: 0px; }
-}
-
-div.animate-landing {
-    animation: 
-    1s linear 0s normal showing forwards,
-    1s linear 1s normal land forwards,
-    1s linear 2s normal turn-to-runway forwards,
-    1s linear 3s normal on-the-runway forwards,
-    1s linear 4s normal turn-to-release-passengers forwards,
-    1s linear 5s normal release-passengers forwards;
 }
 
 @keyframes showing {
@@ -96,12 +96,7 @@ div.animate-landing {
     from { top: 260px; left: 760px; }
     to   { top: 260px; left: 866px; }
 }
-
-// div.animate-fromParking1ToDeparture {
-//     animation: 
-//     1s linear 0s normal showing forwards,
-//     1s linear 1s normal land forwards,
-//     1s linear 2s normal about-to-parking forwards,
-//     1s linear 3s normal on-the-runway forwards,
-//     1s steps(1, end) 3s normal gone forwards;
-// }
+.ddddd{
+    background-color: brown; width: 20px;
+    height: 20px;
+}

@@ -14,18 +14,18 @@ export class DashboardComponent {
   flightSummarys: BehaviorSubject<FlightSummary[]> = new BehaviorSubject<FlightSummary[]>([]);
   flightSummarys$: Observable<FlightSummary[]> = this.flightSummarys.asObservable();
 
-  constructor(private dataService: DataService){}
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-   this.getLastFlights();
+    this.getLastFlights();
   }
   // countryToFlag = (isoCode?: string) =>
   // isoCode != null ? isoCode.toUpperCase().replace(/./g, (char) => String.fromCodePoint(char.charCodeAt(0) + 127397)) : "";
 
 
-  getLastFlights(){
-    this.dataService.getFlights(40).subscribe((data: FlightSummary[]) => {
-     this.flightSummarys.next(data)
+  getLastFlights() {
+    this.dataService.getFlights(0, 30).subscribe((data: FlightSummary[]) => {
+      this.flightSummarys.next(data)
     })
   }
 }
