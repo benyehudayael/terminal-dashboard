@@ -1,17 +1,22 @@
 <div class="dashBoard">
-    <h1>Flights coming soon</h1>
-    <table>
-     <tr>
-       <th *ngFor="let flightHeader of flightHeaders">{{flightHeader}}</th>
-     </tr>
-     <tr *ngFor="let x of flightSummarys$ | async">
-       <td>{{x.flight.numberId}}</td>  
-       <td>
-        <span *ngIf="x.isLanding" class="material-symbols-outlined">flight_land</span>
-        <span *ngIf="!x.isLanding" class="material-symbols-outlined">flight_takeoff</span></td>
-       <td><i [ngClass]="'flag-icon flag-icon-' + x.flight.fromAirport?.Iso_country.toLowerCase()"></i></td>
-       <td><i [ngClass]="'flag-icon flag-icon-' + x.flight.toAirport?.Iso_country.toLowerCase()"></i></td>
-       <td>{{x.time | date:'h:mm a'}}</td> 
-     </tr>  
-   </table>
- </div>
+  <h1>Flights coming soon</h1>
+  <table>
+    <tr>
+      <th *ngFor="let flightHeader of flightHeaders">{{flightHeader}}</th>
+    </tr>
+    <tr *ngFor="let x of flightSummarys$ | async">
+      <td>{{x.flight.numberId}}</td>
+      <td>
+        <div class="status" *ngIf="x.isLanding"><span class="material-symbols-outlined"
+            style="color: rgb(0, 155, 8);">flight_land</span> Departure
+        </div>
+        <div class="status" *ngIf="!x.isLanding"><span class="material-symbols-outlined"
+            style="color: rgb(206, 84, 3);">flight_takeoff</span> Landing
+        </div>
+      </td>
+      <td><i [ngClass]="'flag-icon flag-icon-' + x.flight.fromAirport?.Iso_country.toLowerCase()"></i></td>
+      <td><i [ngClass]="'flag-icon flag-icon-' + x.flight.toAirport?.Iso_country.toLowerCase()"></i></td>
+      <td>{{x.time | date:'h:mm a'}}</td>
+    </tr>
+  </table>
+</div>

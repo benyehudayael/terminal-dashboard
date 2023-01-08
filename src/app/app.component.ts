@@ -8,7 +8,7 @@ import { DataService } from './services/data.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'angular-Terminal-Dashboard'
   menuIconClicked = true
   //summary: Summary
@@ -18,23 +18,26 @@ export class AppComponent implements OnInit{
   timing: string = "Next"
   currentContent: string = 'Dashboard'
   timingClicked: boolean = false
-  constructor(private dataService : DataService) { 
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-   setInterval(() => {  this.loadSummary() }, 1000);
+    setInterval(() => { this.loadSummary() }, 6000);
   }
-  openMenu(){
+  openMenu() {
     this.menuIconClicked = !this.menuIconClicked;
   }
-  changeLastMinutes(minutes: number){
+  changeLastMinutes(minutes: number) {
     this.lastMinutes = minutes;
     minutes < 0 ? this.timing = "Last" : this.timing = "Next";
   }
-  loadSummary(){
+  loadSummary() {
     this.dataService.getSummary(this.lastMinutes)
-    .subscribe((summary: Summary) => {
-      this.summary.next(summary);
-    })
+      .subscribe((summary: Summary) => {
+        this.summary.next(summary);
+      })
+  }
+  animateDesign() {
+
   }
 }

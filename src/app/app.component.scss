@@ -8,12 +8,12 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 .menu{
-    background-color: rgb(15, 44, 82);
+    background-color: rgb(9, 47, 70);
     height: 100%; flex: 1;
     min-width: 250px;
-    font-family: 'Source Sans Pro', sans-serif;
     color: rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
@@ -48,7 +48,6 @@
             font-size: 40px;
         }
     }
-
 }
 
 .content{
@@ -79,18 +78,20 @@
     }
 }
 .searchBox{
-    border: 0.5px solid rgb(175, 175, 175);
-    border-radius: 50px;
-    width: 550px;
+    border: 1.5px solid  rgb(175, 175, 175);
+    width: 500px;
     height: 55%;
     padding-left: 15px;
     min-height: 35px;
     margin-right: 350px;
+    border-radius: 4px;
 }
 
 .searchBox:focus {
     outline: none;
-    border: 0.5px solid rgb(75, 75, 75);
+    border: 2px solid  rgb(3, 142, 206);
+    background-color: rgba(3, 142, 206, 0.116);
+    width: 600px;
 }
 .card-container {
     display: flex; 
@@ -113,41 +114,66 @@
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
         .dropdown{
             flex: 1;
         }
         .cardItem{
-            flex: 4;
+            flex: 3;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            font-size: 40px;
+            font-size: 175%;
             width: 100%;
             img{
-                width: 70px;
-                height: 50px;
+                width: 55px;
+                height: 35px;
             }
             .material-symbols-outlined{
-                font-size: 130%;
+                font-size: 164%;
                 color: rgb(3, 142, 206);
             }
         }
+        .description{
+            font-size: 100%;
+            flex: 2;
+            color: rgb(128, 128, 128);
+        }
+        .countOfThings{
+            font-weight: 500;
+        }
+    }
+    .rollRight{
+        position: absolute;
+        right: 0px;
+        height: 202px;
+        width: 100px;
+        background-color: #3a7cc300;
+        .material-symbols-outlined{
+          font-size: 403%;
+          margin-top: 62px;
+          margin-left: 21px;
+          color: rgba(3, 142, 206, 0);
+        }
+    }
+    .rollRight:hover{
+        animation: 
+        0.7s linear 0s normal bg forwards;
+        .material-symbols-outlined{
+          animation: 
+          0.6s linear 0s normal clr forwards;
+        }
     }
 }
-app-dashboard{
-    background-color: rgb(255, 255, 255);
-    min-height: 500px;
-    overflow: scroll;
-    overflow-x: hidden;
-    flex: 10;
-    margin: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
+
+@keyframes bg {
+    from {  background-color: #3a7cc300; }
+    to   {  background-color: #3a7dc321; }
 }
-app-simulator{
-    height: 100%;
-    flex: 10;
-    margin: 1rem;
-    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
+@keyframes clr {
+    from {  color: rgba(3, 142, 206, 0); }
+    to   {  color: rgb(3 142 206 / 25%); }
 }
 .dropdown {
     right: 0px;
@@ -190,14 +216,27 @@ app-simulator{
       padding: 12px 16px;
       text-decoration: none;
       display: block;
-    }
-      
-  }
- 
-  .dropdown-content a:hover {background-color: #ddd}
-    .btn:hover, .dropdown:hover .btn {
-      background-color: rgba(3, 142, 206, 0.452);
-    }
+    }  
+}
+.dropdown-content a:hover {background-color: #ddd}
+.btn:hover, .dropdown:hover .btn {
+  background-color: rgba(3, 142, 206, 0.452);
+}
+app-dashboard{
+    background-color: rgb(255, 255, 255);
+    min-height: 500px;
+    overflow: scroll;
+    overflow-x: hidden;
+    flex: 10;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
+}
+app-simulator{
+    height: 100%;
+    flex: 10;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(66, 66, 66, 0.2), 0 6px 20px 0 rgba(80, 80, 80, 0.19);
+}
   
   
   

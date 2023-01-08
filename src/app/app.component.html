@@ -2,8 +2,8 @@
 
   <div *ngIf="menuIconClicked" class="menu">
     <div class="menuItem header">
-      <span class="material-symbols-outlined">connecting_airports</span>
-      <div class="itemName"> Terminal</div>
+      <span class="material-symbols-outlined" style="font-size: 170%;">connecting_airports</span>
+      <div class="itemName" style="font-weight: bold; letter-spacing: 1px;"> Terminal</div>
     </div>
     <div class="menuItem Item" (click)="currentContent = 'Dashboard'">
       <span class="material-symbols-outlined">dashboard</span>
@@ -16,70 +16,85 @@
   </div>
 
   <div class="content">
-      <div class="searchContainer"> 
-        <span (click)="openMenu()" class="material-symbols-outlined">
-          menu
-        </span>
-        <input class="searchBox" type="text" placeholder="Search..">
-      </div>
+    <div class="searchContainer">
+      <span (click)="openMenu()" class="material-symbols-outlined"> menu </span>
+      <input class="searchBox" type="text" placeholder="Search...">
+    </div>
 
-      <div class="card-container">   
-        <!-- <div *ngFor="let card of cards$ | async"></div> -->
-        <div class="card">
-          <div class="dropdown">
-            <div class="timing">
+    <div class="card-container">
+      <!-- <div *ngFor="let card of cards$ | async"></div> -->
+      <div class="card">
+        <div class="dropdown">
+          <div class="timing">
             <button class="btn" (click)="timingClicked = !timingClicked">
               <span class="material-symbols-outlined">arrow_drop_down</span>
             </button>
             <div class="p">{{timing}} 30 minutes</div>
           </div>
-            <div *ngIf="timingClicked" class="dropdown-content">
-              <a href="#" (click)="changeLastMinutes(-30)">Last 30 minutes</a>
-              <a href="#" (click)="changeLastMinutes(30)">Next 30 minutes</a>
-            </div>
+          <div *ngIf="timingClicked" class="dropdown-content">
+            <a href="#" (click)="changeLastMinutes(-30)">Last 30 minutes</a>
+            <a href="#" (click)="changeLastMinutes(30)">Next 30 minutes</a>
           </div>
+        </div>
 
-          <div class="cardItem">
-            {{(summary$ | async)?.aboutToTakeOff}}
-            <span class="material-symbols-outlined">flight_takeoff</span>
-          </div>
-          <div class="cardItem">
-            {{(summary$ | async)?.aboutToLand}}
-            <span class="material-symbols-outlined">flight_land</span>
-          </div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.aboutToTakeOff}}</div>
+          <span class="material-symbols-outlined">flight_takeoff</span>
         </div>
-        <div class="card">
-          <div class="cardItem">
-           {{(summary$ | async)?.sumOfAirplanes}}
-           <span class="material-symbols-outlined">airplanemode_active</span>
-          </div>
-          <div class="cardItem">
-            {{(summary$ | async)?.atTheAirport}}
-            <span class="material-symbols-outlined">airplanemode_inactive</span>
-          </div>
+        <div class="description">Departures</div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.aboutToLand}}</div>
+          <span class="material-symbols-outlined">flight_land</span>
         </div>
-        <div class="card">
-          <div class="cardItem">{{(summary$ | async)?.passengersInTheAirportArea}}
-           <img src="../assets/passenger-At-The-Airport.png" alt="">
-          </div>
-          <div class="cardItem">{{(summary$ | async)?.passengersAboutToTakeOff}}
-            <img src="../assets/passengerTookOff.png" alt="">
-          </div>
-          <div class="cardItem">{{(summary$ | async)?.landedPassengers}}
-            <img src="../assets/passengersLanded.png" alt="">
-          </div>
+        <div class="description">Landings</div>
+      </div>
+      <div class="card">
+        <!-- <div class="cardItem">
+          {{(summary$ | async)?.sumOfAirplanes}}
+          <span class="material-symbols-outlined">airplanemode_active</span>
+        </div> -->
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.atTheAirport}}</div>
+          <!-- <span class="material-symbols-outlined">airplanemode_inactive</span> -->
+          <span class="material-symbols-outlined">airplanemode_active</span>
         </div>
-        <div class="card">
-          <div class="cardItem">{{(summary$ | async)?.suitcasesWaitingToBeUnloaded}}</div>
-          <div class="cardItem">{{(summary$ | async)?.suitcasesOnAConveyorBelt}}
-            <img src="../assets/suitcase_belt.png" alt="">
-          </div>
-          <div class="cardItem">{{(summary$ | async)?.suitcasesWaitingToBeloaded}}</div>
+        <div class="description">Airplanes at the airport</div>
+      </div>
+      <div class="card">
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.passengersInTheAirportArea}}</div>
+          <img src="../assets/passenger-At-The-Airport.png" alt="">
+        </div>
+        <div class="description">assengers at the airport</div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.passengersAboutToTakeOff}}</div>
+          <img src="../assets/passengerTookOff.png" alt="">
+        </div>
+        <div class="description">assengers about to take off</div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.landedPassengers}}</div>
+          <img src="../assets/passengersLanded.png" alt="">
+        </div>
+        <div class="description">Landed passengers</div>
+      </div>
+      <div class="card">
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.suitcasesWaitingToBeUnloaded}}</div>
+        </div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.suitcasesOnAConveyorBelt}}</div>
+          <img src="../assets/suitcase_belt.png" alt="">
+        </div>
+        <div class="cardItem">
+          <div class="countOfThings">{{(summary$ | async)?.suitcasesWaitingToBeloaded}}</div>
         </div>
       </div>
 
-      <!-- dashBoard -->
-     <app-dashboard *ngIf="currentContent == 'Dashboard'"></app-dashboard>
-     <app-simulator *ngIf="currentContent == 'Simulator'"></app-simulator>
+      <div class="rollRight"><span class="material-symbols-outlined"> arrow_forward_ios </span></div>
+    </div>
+
+    <!-- dashBoard -->
+    <app-dashboard *ngIf="currentContent == 'Dashboard'"></app-dashboard>
+    <app-simulator *ngIf="currentContent == 'Simulator'"></app-simulator>
   </div>
 </div>
